@@ -1,3 +1,4 @@
+
 'use client';
 
 import type React from 'react';
@@ -51,7 +52,11 @@ const AIPredictionsPanelCard: React.FC = () => {
             Direction: {data.prediction}
           </div>
           <ValueWithIcon icon={Percent} label="Confidence" value={(data.confidence * 100).toFixed(1)} unit="%" />
-          <ValueWithIcon icon={Target} label="Expected Movement" value={`${data.expectedPriceMovement.min} - ${data.expectedPriceMovement.max}`} />
+          <ValueWithIcon 
+            icon={Target} 
+            label="Expected Movement" 
+            value={data.expectedPriceMovement ? `${data.expectedPriceMovement.min} - ${data.expectedPriceMovement.max}` : 'N/A'} 
+          />
           <ValueWithIcon icon={Zap} label="Market Regime" value={data.marketRegime} />
         </div>
       )}
