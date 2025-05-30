@@ -1,3 +1,4 @@
+
 'use client';
 
 import type React from 'react';
@@ -66,7 +67,7 @@ const TechnicalAnalysisChartsCard: React.FC = () => {
                       tickLine={false} 
                       axisLine={false} 
                       tickMargin={8} 
-                      tickFormatter={(value) => value.slice(-5)} // Assuming time is like "HH:MM:SS"
+                      tickFormatter={(value) => typeof value === 'string' ? value.slice(-5) : ''} // Assuming time is like "HH:MM:SS"
                       className="text-xs"
                     />
                     <YAxis 
@@ -87,9 +88,21 @@ const TechnicalAnalysisChartsCard: React.FC = () => {
             </div>
           )}
           <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-            <ValueWithIcon icon={LucideLineChart} label="Last Price" value={data.lastPrice.toFixed(2)} />
-            <ValueWithIcon icon={PercentSquare} label="RSI" value={data.rsi.toFixed(1)} />
-            <ValueWithIcon icon={BarChart3} label="Volume" value={data.volume.toLocaleString()} />
+            <ValueWithIcon 
+              icon={LucideLineChart} 
+              label="Last Price" 
+              value={typeof data.lastPrice === 'number' ? data.lastPrice.toFixed(2) : 'N/A'} 
+            />
+            <ValueWithIcon 
+              icon={PercentSquare} 
+              label="RSI" 
+              value={typeof data.rsi === 'number' ? data.rsi.toFixed(1) : 'N/A'} 
+            />
+            <ValueWithIcon 
+              icon={BarChart3} 
+              label="Volume" 
+              value={typeof data.volume === 'number' ? data.volume.toLocaleString() : 'N/A'} 
+            />
              {data.supportLevels && data.supportLevels.length > 0 && 
                 <ValueWithIcon icon={TrendingDown} label="Support" value={data.supportLevels.join(', ')} /> }
              {data.resistanceLevels && data.resistanceLevels.length > 0 && 
