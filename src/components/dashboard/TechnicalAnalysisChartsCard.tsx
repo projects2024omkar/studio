@@ -33,7 +33,7 @@ const TechnicalAnalysisChartsCard: React.FC = () => {
       <CardWrapper title="Technical Analysis (NIFTY 1hr)" icon={LucideLineChart} isLoading={true} error={null} isOnline={true} lastUpdated={null} serviceName="Technical Analysis Service">
         <div className="space-y-3 p-4">
           <Skeleton className="h-40 w-full" />
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-full" />
@@ -87,7 +87,7 @@ const TechnicalAnalysisChartsCard: React.FC = () => {
               </ChartContainer>
             </div>
           )}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
             <ValueWithIcon 
               icon={LucideLineChart} 
               label="Last Price" 

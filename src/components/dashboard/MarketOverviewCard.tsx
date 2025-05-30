@@ -31,8 +31,8 @@ const MarketDataDisplay: React.FC<{
 
   return (
     <div className="space-y-2">
-      <h3 className="text-xl font-semibold">{data.symbol}</h3>
-      <p className={`text-3xl font-bold ${trendColor}`}>{data.price.toFixed(2)}</p>
+      <h3 className="text-lg sm:text-xl font-semibold">{data.symbol}</h3>
+      <p className={`text-2xl sm:text-3xl font-bold ${trendColor}`}>{data.price.toFixed(2)}</p>
       <div className={`flex items-center text-sm ${trendColor}`}>
         <TrendIcon className="h-4 w-4 mr-1" />
         <span>

@@ -9,7 +9,7 @@ export default function AlgoTradeViewPage() {
   return (
     <div className="min-h-screen bg-background text-foreground p-4 md:p-6 lg:p-8">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-primary-foreground">AlgoTradeView Dashboard</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-primary-foreground">AlgoTradeView Dashboard</h1>
       </header>
       <main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         <MarketOverviewCard />
