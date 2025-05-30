@@ -1,3 +1,4 @@
+
 export interface MarketSnapshot {
   symbol: string;
   price: number;
@@ -7,15 +8,24 @@ export interface MarketSnapshot {
   lastUpdated: string;
 }
 
-export interface AIPrediction {
-  symbol: string;
-  prediction: 'BULLISH' | 'BEARISH' | 'NEUTRAL';
-  confidence: number; // 0.0 to 1.0
-  expectedPriceMovement: {
+// New interface for the nested prediction details based on the error message
+export interface MlPredictionDetails {
+  direction: 'BULLISH' | 'BEARISH' | 'NEUTRAL';
+  confidence: number;
+  probability_up?: number; // Optional field from error object
+  probability_down?: number; // Optional field from error object
+  expected_move: { // API seems to use 'expected_move'
     min: number;
     max: number;
   };
-  marketRegime: string; // e.g., "Trending", "Volatile", "Sideways"
+  target_levels?: number[]; // Optional field from error object
+}
+
+export interface AIPrediction {
+  symbol: string;
+  prediction: MlPredictionDetails; // Changed: this is now the nested object
+  // marketRegime is assumed to be a top-level string as it's not in the prediction detail error object
+  marketRegime: string;
   lastUpdated: string;
 }
 
