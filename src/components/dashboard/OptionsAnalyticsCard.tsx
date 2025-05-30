@@ -1,3 +1,4 @@
+
 'use client';
 
 import type React from 'react';
@@ -56,10 +57,26 @@ const OptionsAnalyticsCard: React.FC = () => {
     >
       {data && (
         <div className="space-y-3">
-          <ValueWithGreekIcon greekName="Delta" label="Portfolio Delta" value={data.portfolioDelta.toFixed(2)} />
-          <ValueWithGreekIcon greekName="Gamma" label="Portfolio Gamma" value={data.portfolioGamma.toFixed(4)} />
-          <ValueWithGreekIcon greekName="Theta" label="Portfolio Theta" value={data.portfolioTheta.toFixed(2)} />
-          <ValueWithGreekIcon greekName="Vega" label="Portfolio Vega" value={data.portfolioVega.toFixed(2)} />
+          <ValueWithGreekIcon 
+            greekName="Delta" 
+            label="Portfolio Delta" 
+            value={typeof data.portfolioDelta === 'number' ? data.portfolioDelta.toFixed(2) : 'N/A'} 
+          />
+          <ValueWithGreekIcon 
+            greekName="Gamma" 
+            label="Portfolio Gamma" 
+            value={typeof data.portfolioGamma === 'number' ? data.portfolioGamma.toFixed(4) : 'N/A'} 
+          />
+          <ValueWithGreekIcon 
+            greekName="Theta" 
+            label="Portfolio Theta" 
+            value={typeof data.portfolioTheta === 'number' ? data.portfolioTheta.toFixed(2) : 'N/A'} 
+          />
+          <ValueWithGreekIcon 
+            greekName="Vega" 
+            label="Portfolio Vega" 
+            value={typeof data.portfolioVega === 'number' ? data.portfolioVega.toFixed(2) : 'N/A'} 
+          />
         </div>
       )}
     </CardWrapper>
